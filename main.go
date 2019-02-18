@@ -12,21 +12,21 @@ import (
 )
 
 func main() {
-	var siteurl string
 	var a string
 	fmt.Print("site URL or image URL? :")
 	fmt.Scan(&a)
 	if a == "site" {
-		savesite(siteurl)
+		savesite()
 	} else if a == "image" {
-		saveimg(siteurl)
+		saveimg()
 	} else if a != "site" && a != "image" {
 		fmt.Println("Please enter either")
 	}
 }
 
-func savesite(siteurl string) {
+func savesite() {
 	defer fmt.Println("Save completed!!")
+	var siteurl string
 	var result []*url.URL
 	fmt.Print("Please enter URL :")
 	fmt.Scan(&siteurl)
@@ -50,7 +50,8 @@ func savesite(siteurl string) {
 	}
 }
 
-func saveimg(siteurl string) {
+func saveimg() {
+	var siteurl string
 	defer fmt.Println("Save completed!!")
 	fmt.Print("Please enter URL : ")
 	fmt.Scan(&siteurl)
@@ -72,4 +73,3 @@ func confirmurl(url string) bool {
 	use := true
 	return use
 }
-
